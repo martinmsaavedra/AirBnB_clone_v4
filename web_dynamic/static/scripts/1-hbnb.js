@@ -1,13 +1,16 @@
 $(document).ready(function () {
-    $('input[type=checkbox]').change(function () {
-        amenities_id_list = []
-        amenities_name_list = []
-        if (this.checked) {
-
-            let amenities_id = this.data-id;
-            amenities_id_list.append(amenities_id);
-            let amenities_name = this.data-name;
-            amenities_name_list.append(amenities_name);
-            console.log(amenities_id, amenities_name);
-        }});
+    let checkedAmenities = {};
+    $(document).on('change', "input[type='checkbox']", function () {
+      if (this.checked) {
+        checkedAmenities[$(this).data('id')] = $(this).data('name');
+      } else {
+        delete checkedAmenities[$(this).data('id')];
+      }
+      let lst = Object.values(checkedAmenities);
+      if ( lst.length === 0 ) {
+        $('.amenities > h4').html('&nbsp;');
+      } else {
+        $('div.amenities > h4').text(Object.values(checkedAmenities).join(', '));
+      }
+    });
 });
