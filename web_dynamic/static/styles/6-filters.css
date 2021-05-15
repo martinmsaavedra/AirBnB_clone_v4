@@ -14,6 +14,7 @@
 
 .container .filters .locations {
 	width: 25%;
+    height: 100%;
 	border-right: 1px solid #DDDDDD;
 }
 
@@ -23,6 +24,7 @@
 
 .container .filters button {
 	font-size: 18px;
+    color: #FFFFFF;
 	background-color: #FF5A5F;
 	height: 48px;
 	width: 20%;
@@ -73,7 +75,7 @@
 
 .container .filters .popover {
 	max-height: 300px;
-	overflow: scroll;
+	overflow-y: scroll;
 	display: none;
 	list-style-type: none;
 	background-color: #FAFAFA;
